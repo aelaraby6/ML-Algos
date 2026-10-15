@@ -28,14 +28,11 @@ X_feature_test = X_test[:, 0]  # sqft
 X_feature_train = X_train[:, 0]
 
 plt.figure(figsize=(8,6))
-plt.scatter(X_feature_train, y_train, color='blue', alpha=0.6, label='Training data')
-plt.scatter(X_feature_test, y_test, color='green', alpha=0.6, label='Test data')
-
-y_line = model.weights[0] * X_feature_test + model.bias
-plt.plot(X_feature_test, y_line, color='red', linewidth=2, label='Regression line (sqft)')
-
-plt.xlabel("Square Footage (sqft)")
-plt.ylabel("Price")
-plt.title("Linear Regression Prediction")
+plt.scatter(y_test, y_pred, color='blue', alpha=0.6, label='Predicted vs Actual')
+plt.plot([y_test.min(), y_test.max()], [y_test.min(), y_test.max()],
+         color='red', linewidth=2, label='Perfect Prediction Line')
+plt.xlabel("Actual Price")
+plt.ylabel("Predicted Price")
+plt.title("Multiple Linear Regression: Actual vs Predicted")
 plt.legend()
 plt.show()
