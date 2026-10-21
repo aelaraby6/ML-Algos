@@ -56,7 +56,7 @@ class DecisionTreeRegressor:
     def fit(self, X, y):
         self.tree = self._build(X, y, 0)
 
-    # ---------- prediction ----------
+    # prediction
     def _predict_one(self, row, node):
         if "value" in node:  # reached a leaf
             return node["value"]
@@ -67,7 +67,7 @@ class DecisionTreeRegressor:
     def predict(self, X):
         return [self._predict_one(row, self.tree) for row in X]
 
-    # ---------- draw the tree with matplotlib ----------
+    # draw the tree with matplotlib
     def plot(self):
         import matplotlib.pyplot as plt
 
